@@ -1,0 +1,304 @@
+.site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 84px 0 30px;
+    color: #fffefa;
+    background: #071f1a;
+}
+
+.site-footer::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: rgba(255,255,255,.22);
+}
+
+.site-footer::after {
+    position: absolute;
+    z-index: 0;
+    right: -0.04em;
+    bottom: -0.26em;
+    content: "CENIT.";
+    color: transparent;
+    font-family: var(--cenit-display, sans-serif);
+    font-size: clamp(8rem, 19vw, 18rem);
+    font-weight: 650;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    pointer-events: none;
+    -webkit-text-stroke: 1px rgba(185,227,205,.12);
+}
+
+.footer-shell {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-contenido {
+    display: grid;
+    grid-template-columns: 5fr 3fr 4fr;
+    gap: clamp(40px, 7vw, 100px);
+}
+
+.footer-marca {
+    padding-right: clamp(20px, 4vw, 70px);
+}
+
+.footer-logo {
+    position: relative;
+    display: inline-flex;
+    width: 148px;
+    padding: 0;
+    background: transparent;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    content: "";
+    background: #ef5b3f;
+    transform: translateY(-50%);
+}
+
+.footer-marca p {
+    max-width: 32ch;
+    margin: 34px 0 0;
+    color: rgba(255,255,255,.62);
+    font-size: .95rem;
+}
+
+.site-footer h3 {
+    margin: 0 0 28px;
+    color: #b9e3cd;
+    font-family: var(--cenit-mono, monospace);
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: grid;
+    gap: 0;
+}
+
+.footer-links a {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    color: rgba(255,255,255,.78);
+    font-size: .9rem;
+    transition: color 160ms ease, padding 160ms ease;
+}
+
+.footer-links a::after {
+    position: absolute;
+    right: 0;
+    content: "↗";
+    color: #ef5b3f;
+    font-family: var(--cenit-mono, monospace);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    padding-left: 8px;
+    color: #fffefa;
+}
+
+.footer-contacto-lista {
+    display: grid;
+    gap: 13px;
+}
+
+.footer-contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255,255,255,.72);
+    font-size: .88rem;
+    overflow-wrap: anywhere;
+}
+
+.footer-contacto-item svg {
+    width: 17px;
+    flex: none;
+    margin-top: 4px;
+    fill: none;
+    stroke: #b9e3cd;
+    stroke-width: 1.6;
+}
+
+a.footer-contacto-item:hover,
+a.footer-contacto-item:focus-visible {
+    color: #fffefa;
+}
+
+.footer-eventos {
+    margin-top: 18px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.footer-eventos-titulo {
+    margin: 0 0 12px;
+    color: rgba(255,255,255,.46);
+    font-family: var(--cenit-mono, monospace);
+    font-size: .64rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.footer-evento-contacto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 6px 0;
+    color: rgba(255,255,255,.72);
+    font-size: .78rem;
+}
+
+.footer-evento-contacto strong {
+    color: #b9e3cd;
+    font-family: var(--cenit-mono, monospace);
+    font-size: .74rem;
+    font-weight: 500;
+}
+
+.footer-base {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 66px;
+    padding: 24px 0 92px;
+    border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.footer-base::after {
+    content: none;
+    color: rgba(255,255,255,.38);
+    font-family: var(--cenit-mono, monospace);
+    font-size: .6rem;
+    letter-spacing: .12em;
+}
+
+.footer-base p {
+    margin: 0;
+    color: rgba(255,255,255,.42);
+    font-family: var(--cenit-mono, monospace);
+    font-size: .65rem;
+}
+
+.whatsapp-fijo,
+.seo-whatsapp {
+    position: fixed;
+    z-index: 850;
+    right: 24px;
+    bottom: 24px;
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 0;
+    color: #fff;
+    background: #237d4b;
+    box-shadow: 8px 8px 0 rgba(10,45,36,.14);
+    transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-fijo:hover,
+.whatsapp-fijo:focus-visible,
+.seo-whatsapp:hover,
+.seo-whatsapp:focus-visible {
+    background: #ef5b3f;
+    box-shadow: 4px 4px 0 rgba(10,45,36,.18);
+    transform: translate(2px, 2px);
+}
+
+.whatsapp-fijo svg,
+.seo-whatsapp svg {
+    width: 27px;
+    height: 27px;
+    fill: currentColor;
+}
+
+.volver-arriba {
+    position: fixed;
+    z-index: 840;
+    right: 24px;
+    bottom: 90px;
+    display: grid;
+    visibility: hidden;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 0;
+    border-radius: 0;
+    opacity: 0;
+    color: #ef5b3f;
+    background: transparent;
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,.7));
+    cursor: pointer;
+    transform: translateY(8px);
+    transition: color 180ms ease, opacity 180ms ease, transform 180ms ease, visibility 180ms;
+}
+
+.volver-arriba.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+}
+
+.volver-arriba svg {
+    width: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.volver-arriba:hover,
+.volver-arriba:focus-visible {
+    color: #d8442c;
+    transform: translateY(-3px);
+}
+
+.volver-arriba:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .footer-contenido {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-marca {
+        grid-column: 1 / -1;
+        padding: 0 0 36px;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+}
+
+@media (max-width: 620px) {
+    .site-footer { padding-top: 68px; }
+    .footer-contenido { grid-template-columns: 1fr; gap: 44px; }
+    .footer-marca { grid-column: auto; }
+    .footer-base { display: block; margin-top: 52px; padding-bottom: 60px; }
+    .footer-base::after { display: block; margin-top: 12px; }
+    .whatsapp-fijo,
+    .seo-whatsapp { right: 16px; bottom: 16px; }
+    .volver-arriba { right: 21px; bottom: 82px; }
+}

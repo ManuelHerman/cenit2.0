@@ -1,0 +1,57 @@
+.modality-journey{--journey-progress:0;background:#f15b3d;color:#092d24;position:relative}
+.modality-sticky{padding:36px 5vw;box-sizing:border-box}
+.modality-top,.modality-kicker,.modality-controls,.modality-links{font-family:var(--cenit-mono,'IBM Plex Mono',monospace);font-size:12px;letter-spacing:.08em}
+.modality-top{display:flex;justify-content:space-between;gap:20px;padding-bottom:22px;border-bottom:1px solid #092d2455}
+.modality-panel{padding:40px 0;min-width:0;box-sizing:border-box;overflow:hidden}
+.modality-rm,.modality-ct{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center}
+.modality-panel h2{font-size:clamp(80px,11vw,164px);font-weight:600;line-height:.9;letter-spacing:-.06em;margin:15px 0 22px}
+.modality-panel h2 span{display:block;font-size:clamp(30px,3.3vw,52px);line-height:1.04;letter-spacing:-.045em;margin-top:16px}
+.modality-panel p:not(.modality-kicker){font-size:clamp(16px,1.3vw,20px);line-height:1.5;max-width:470px;margin:20px 0}
+.modality-links{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px}
+.modality-links a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;min-height:44px;display:inline-flex;align-items:center}
+.modality-products{display:flex;align-items:center;justify-content:center;height:100%;min-height:0;gap:12px}
+.modality-products img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.modality-products .modality-vial{width:27%;height:45%;align-self:flex-end;margin-bottom:8%}
+.modality-products .modality-injector{display:block;flex:none;width:68%;max-width:342px;max-height:100%;height:auto;aspect-ratio:342/440;overflow:hidden}
+.modality-big{display:flex;align-items:center;gap:4vw;font-size:clamp(80px,15vw,200px);line-height:1;letter-spacing:-.065em;margin:30px 0}
+.modality-big span{opacity:.4}.modality-big i{height:1px;flex:1;background:currentColor}
+.modality-divider h2{font-size:clamp(36px,4vw,60px);line-height:1.02}
+.modality-controls{display:none}
+.modality-journey.is-scroll-journey{height:220svh}
+.is-scroll-journey .modality-sticky{position:sticky;top:70px;height:calc(100svh - 70px);display:flex;flex-direction:column;overflow:hidden}
+.is-scroll-journey .modality-window{flex:1;min-height:0;overflow:hidden}
+.is-scroll-journey .modality-track{height:100%;display:flex;transform:translate3d(calc(var(--journey-progress) * -100%),0,0);will-change:transform}
+.is-scroll-journey .modality-panel{flex:0 0 100%;height:100%;padding:24px 0}
+.is-scroll-journey .modality-controls{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #092d2455;padding-top:12px}
+.modality-controls button{font:inherit;background:none;border:0;color:inherit;opacity:.55;cursor:pointer;min-height:44px;padding:8px 0}
+.modality-controls button[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:7px}
+.modality-journey :focus-visible{outline:2px solid #092d24;outline-offset:5px}
+body.modality-traversing .whatsapp-fijo,body.modality-traversing .volver-arriba{visibility:hidden!important;pointer-events:none!important}
+@media(max-width:700px){
+ .modality-sticky{padding:18px 20px}.modality-top{font-size:9px;padding-bottom:12px}.modality-hint{max-width:100px;text-align:right}
+ .modality-rm,.modality-ct{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:12px}
+ .modality-panel h2{font-size:68px;margin:10px 0}.modality-panel h2 span{font-size:30px;margin-top:6px}
+ .modality-panel p:not(.modality-kicker){font-size:14px;line-height:1.4;margin:12px 0}.modality-kicker{font-size:10px}
+ .modality-links{margin-top:8px;font-size:11px;gap:20px}.modality-products{height:100%;min-height:100px}
+ .modality-controls{font-size:9px;letter-spacing:0}.is-scroll-journey .modality-panel{padding:15px 0}
+ .modality-big{font-size:24vw;margin:60px 0 35px}.modality-divider h2{font-size:40px}
+}
+/* Short desktop windows keep the lateral journey instead of silently stacking. */
+@media(max-height:700px) and (min-width:701px){
+ .modality-sticky{padding-top:12px;padding-bottom:8px}.modality-top{padding-bottom:8px;font-size:10px}
+ .modality-panel h2{font-size:72px;margin:10px 0}.modality-panel h2 span{font-size:30px;margin-top:8px}
+ .modality-panel p:not(.modality-kicker){font-size:15px;margin:10px 0}
+ .modality-big{font-size:100px;margin:16px 0}.modality-divider h2{font-size:36px}
+ .modality-links{margin-top:10px}.is-scroll-journey .modality-panel{padding:12px 0}
+}
+.modality-ct h2{font-size:clamp(52px,7vw,112px)}
+.modality-ct figure{position:relative;margin:0;padding-bottom:30px;box-sizing:border-box}
+.modality-ct figcaption{position:absolute;bottom:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em}
+@media(max-width:700px){.modality-ct h2{font-size:52px}}
+@media(max-height:650px) and (max-width:700px){
+ .modality-rm,.modality-ct{grid-template-columns:1.2fr 1fr;grid-template-rows:1fr;gap:10px}
+ .modality-panel h2,.modality-ct h2{font-size:36px}.modality-panel h2 span{font-size:21px}
+ .modality-panel p:not(.modality-kicker){font-size:12px}.modality-links{font-size:9px;gap:8px}
+ .modality-top{font-size:8px}.modality-big{margin:20px 0;font-size:70px}.modality-divider h2{font-size:30px}
+}
+@media(prefers-reduced-motion:reduce){.modality-journey.is-scroll-journey{height:auto}.is-scroll-journey .modality-sticky{position:relative;height:auto;top:0}.is-scroll-journey .modality-track{display:block;transform:none;will-change:auto}.is-scroll-journey .modality-panel{min-height:650px}.modality-products{max-height:450px}.is-scroll-journey .modality-controls{display:none}.modality-hint{display:none}}

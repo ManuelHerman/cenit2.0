@@ -1,0 +1,84 @@
+/* Cenit: editorial actions and an open brand gallery. */
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar),
+body.seo-marcas .seo-card-body>a,
+body.home-editorial-v4 .rm-projection-copy>a,
+body .modality-links a {
+ display:inline-flex;align-items:center;justify-content:flex-start;gap:18px;
+ min-height:48px;width:fit-content;max-width:100%;padding:10px 0 8px;
+ border:0;border-bottom:1px solid currentColor;border-radius:0;background:transparent;color:#123c30;
+ font-family:Arial,sans-serif;font-size:16px;font-weight:600;line-height:1.3;
+ text-transform:none;letter-spacing:0;text-decoration:none;box-shadow:none;
+ transition:color .2s,border-color .2s;transform:none;
+}
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar)::before{content:none}
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar)::after,
+body.seo-marcas .seo-card-body>a::after,
+body.home-editorial-v4 .rm-projection-copy>a::after{
+ content:'→';position:static;display:block;flex:none;width:auto;height:auto;margin:0;padding:0;
+ border:0;background:none;font:22px/1 Arial,sans-serif;color:inherit;transform:translateX(0);transition:transform .2s;
+}
+body .px-consult-link span,body.home-editorial-v4 .rm-projection-copy>a span{display:none}
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar):hover,
+body.seo-marcas .seo-card-body>a:hover,
+body.home-editorial-v4 .rm-projection-copy>a:hover,body .modality-links a:hover{
+ background:transparent;border-color:#f06a4f;color:#1c5743;transform:none;box-shadow:none;
+}
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar):hover::after,
+body.seo-marcas .seo-card-body>a:hover::after,
+body.home-editorial-v4 .rm-projection-copy>a:hover::after{transform:translateX(5px)}
+body :is(.respaldo,.cenit-closing,.servicio-landing-hero,.seo-cta) :is(.btn,.seo-btn),
+body.home-editorial-v4 .rm-projection-copy>a{
+ background:transparent;border-color:#f06a4f;color:#fffefa;
+}
+body.home-editorial-v4 .rm-projection-copy>a{color:#fffefa}
+body :is(.respaldo,.cenit-closing,.servicio-landing-hero) .btn-secundario{background:transparent;border-color:rgba(255,255,255,.48);color:#fffefa}
+body :is(.btn,.seo-btn,.px-consult-link,.catalogo-consultar,.modality-links a):focus-visible,
+body.home-editorial-v4 .rm-projection-copy>a:focus-visible{outline:3px solid #f06a4f;outline-offset:5px}
+body .modality-controls{gap:28px;border-top:1px solid #123c3030;padding-top:14px;justify-content:flex-start}
+body .modality-controls button{font:600 14px/1.3 Arial,sans-serif;opacity:.55;padding:10px 0 8px;border:0;border-bottom:2px solid transparent;border-radius:0;min-height:44px;text-decoration:none;background:transparent}
+body .modality-controls button[aria-current]{background:transparent;color:#123c30;border-color:#123c30;text-decoration:none;opacity:1}
+body.product-experience .px-motion-toggle{font:600 13px/1.3 Arial,sans-serif;border:0;border-bottom:1px solid #718b7e;border-radius:0;padding:10px 0 8px;min-height:44px;background:transparent;color:#123c30}
+body.home-editorial-v4 .cenit-closing .contacto-acciones .btn,
+body.home-editorial-v4 .respaldo .btn,
+body.servicio-pagina .servicio-hero-acciones .btn,
+body.servicio-pagina .servicio-enviar,
+body.catalogo-pagina .catalogo-card .catalogo-consultar{
+ width:fit-content;padding:10px 0 8px;font-family:Arial,sans-serif;font-size:16px;font-weight:600;line-height:1.3;letter-spacing:0;text-transform:none;
+}
+body.home-editorial-v4 .cenit-closing .contacto-acciones{display:flex;flex-wrap:wrap;gap:16px 28px}
+body.catalogo-pagina .catalogo-acciones{gap:14px 24px}
+/* An open directory: complete logos, useful specialties and stationary links. */
+body.home-editorial-v4 .marcas-gallery{background:#fffefa;padding:76px 0 92px;color:#123c30;opacity:1;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery>.contenedor{display:block}
+body.home-editorial-v4 .marcas-gallery .marcas-encabezado{display:flex;position:static;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:42px}
+body.home-editorial-v4 .marcas-gallery .marcas-titulo{font-size:clamp(42px,4.8vw,64px);line-height:1.04;letter-spacing:-.045em;max-width:18ch;margin:0}
+body.home-editorial-v4 .marcas-gallery .marcas-criterio{flex:0 1 360px;font-size:17px;line-height:1.55;border:0;margin:0;padding:0;max-width:36ch;color:#536b60}
+body.home-editorial-v4 .marcas-gallery .marcas-scroll{margin:0;overflow:visible;display:block;border:0;opacity:1;clip-path:none;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .texto-scroll{opacity:1;clip-path:none;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marcas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:0 56px;overflow:visible;background:transparent;padding:0;mask-image:none;scroll-snap-type:none;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marca:nth-child(n){grid-area:auto;display:grid;grid-template-columns:160px minmax(0,1fr) 18px;gap:24px;align-items:center;justify-content:start;width:100%;height:auto;min-height:116px;min-width:0;padding:24px 0;border:0;border-bottom:1px solid #123c3030;border-radius:0;background:transparent;color:#123c30;text-decoration:none;transform:none;opacity:1;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marca:nth-child(-n+2){border-top:1px solid #123c3030}
+body.home-editorial-v4 .marcas-gallery .marca::before,body.home-editorial-v4 .marcas-gallery .marca::after{content:none}
+body.home-editorial-v4 .marcas-gallery .marca-identidad{display:flex;align-items:center;justify-content:flex-start;width:100%;min-width:0;height:64px}
+body.home-editorial-v4 .marcas-gallery .marca:nth-child(n) img{display:block;width:auto;height:auto;max-width:100%;max-height:60px;object-fit:contain;filter:none;opacity:1;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marca-bayer:nth-child(n) img{width:64px;height:64px;max-width:64px;max-height:64px}
+body.home-editorial-v4 .marcas-gallery .marca:nth-child(n) .marca-logo{font:600 22px/1 Arial,sans-serif;letter-spacing:.015em;color:#19754b;max-width:100%;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marca-especialidad{font:400 16px/1.45 Arial,sans-serif;letter-spacing:0;text-transform:none;max-width:26ch;color:#536b60}
+body.home-editorial-v4 .marcas-gallery .marca-flecha{font:400 22px/1 Arial,sans-serif;color:#123c30;transform:none;animation:none;transition:none}
+body.home-editorial-v4 .marcas-gallery .marca:hover{background:transparent;border-bottom-color:#f06a4f}
+body.home-editorial-v4 .marcas-gallery .marca:focus-visible{outline:2px solid #f06a4f;outline-offset:5px}
+body.seo-marcas .seo-card-kicker{display:none}
+body.seo-marcas .seo-card{border:0;border-bottom:1px solid #123c3030;box-shadow:none;background:transparent}
+body.seo-marcas .seo-card-media{background:#fffefa;min-height:150px}
+@media(max-width:1100px){body.home-editorial-v4 .marcas-gallery .marcas-grid{gap:0 36px}body.home-editorial-v4 .marcas-gallery .marca:nth-child(n){grid-template-columns:130px minmax(0,1fr) 18px;gap:18px}}
+@media(max-width:900px){body.home-editorial-v4 .marcas-gallery .marcas-encabezado{display:block;margin-bottom:34px}body.home-editorial-v4 .marcas-gallery .marcas-criterio{margin-top:20px;max-width:48ch}body.home-editorial-v4 .marcas-gallery .marcas-grid{grid-template-columns:1fr}body.home-editorial-v4 .marcas-gallery .marca:nth-child(n){grid-template-columns:180px minmax(0,1fr) 18px;gap:36px;border-top:0}body.home-editorial-v4 .marcas-gallery .marca:first-child{border-top:1px solid #123c3030}}
+@media(max-width:600px){body.home-editorial-v4 .marcas-gallery{padding:56px 0 64px}body.home-editorial-v4 .marcas-gallery .marcas-titulo{font-size:42px}body.home-editorial-v4 .marcas-gallery .marcas-criterio{font-size:16px}body.home-editorial-v4 .marcas-gallery .marca:nth-child(n){grid-template-columns:112px minmax(0,1fr) 16px;gap:16px;min-height:108px;padding:22px 0}body.home-editorial-v4 .marcas-gallery .marca-especialidad{font-size:15px}body.home-editorial-v4 .marcas-gallery .marca:nth-child(n) .marca-logo{font-size:19px}body.home-editorial-v4 .marcas-gallery .marca-flecha{font-size:20px}body :is(.btn,.seo-btn,.catalogo-consultar),body.seo-marcas .seo-card-body>a,body.home-editorial-v4 .rm-projection-copy>a,body .modality-links a{font-size:15px;gap:14px;padding:10px 0 8px;min-height:46px}body .modality-controls button{font-size:13px;padding:10px 0}}
+@media(prefers-reduced-motion:reduce){body :is(.btn,.seo-btn,.catalogo-consultar){transition:none}}
+
+/* Photographs stay free of repeated orange framing. */
+body.home-editorial-v4 .respaldo-imagen::after,
+body.home-editorial-v4 .respaldo-texto::after,
+body.home-editorial-v4 .rm-projection-sticky::before,
+body.home-editorial-v4 .contacto::after { content: none; }
+body .cenit-closing-media { border-right: 0; }
+body .seo-media-photo { border-left: 0; }

@@ -1,0 +1,14 @@
+.home-editorial-v4 .rm-projection.cenit-atlas-process{height:400svh;background:#092c24}
+.cenit-atlas-process .rm-projection-sticky{background:#092c24}
+.cenit-atlas-process .rm-projection-canvas{left:28%;top:17%;width:70%;height:70%;opacity:1;filter:none;transform:none}
+.cenit-atlas-process .rm-projection-veil{display:none}
+.cenit-atlas-process .rm-projection-copy{width:26%;max-width:390px;left:0;top:38%;bottom:auto}
+.cenit-atlas-process .rm-projection-copy h1,.cenit-atlas-process .rm-projection-copy h2{font-size:clamp(26px,3.3vw,56px);line-height:1.02;letter-spacing:-.04em}
+.cenit-atlas-process .rm-projection-copy p{font-size:clamp(12px,1.15vw,17px)}
+.cenit-atlas-process .rm-projection-chapter{font-size:10px;gap:20px}
+.cenit-atlas-process .rm-projection-chapter span:last-child{display:block!important;margin-right:0}
+.home-editorial-v4 .cenit-atlas-process .rm-projection-chapter{display:flex;align-items:flex-start}
+.home-editorial-v4 .cenit-atlas-process .rm-projection-chapter span{flex:none;width:auto;white-space:normal}
+.cenit-atlas-process .rm-projection-copy-cenit{width:80%;max-width:800px}
+@media(max-width:900px){.cenit-atlas-process .rm-projection-canvas{left:2%;top:22%;width:96%;height:46%}.cenit-atlas-process .rm-projection-copy{left:0;top:auto;bottom:12%;width:100%;max-width:none}.cenit-atlas-process .rm-projection-copy h1,.cenit-atlas-process .rm-projection-copy h2{font-size:clamp(25px,6vw,40px)}.cenit-atlas-process .rm-projection-copy h2 br{display:none}.cenit-atlas-process .rm-projection-copy p{margin:7px 0}.cenit-atlas-process .rm-projection-chapter{flex-direction:column;gap:5px}.cenit-atlas-process .rm-projection-representation{display:none}}
+@media(prefers-reduced-motion:reduce){.home-editorial-v4 .rm-projection.cenit-atlas-process{height:100svh}}

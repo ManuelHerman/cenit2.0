@@ -1,0 +1,114 @@
+# Quimica Cenit is a static site. Keep directory contents and legacy
+# server-side files inaccessible from the public web root.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Keep the public home address clean even when an old link requests index.html.
+    RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+    RewriteRule ^index\.html$ https://www.quimicacenit.uy/ [R=301,L,NE]
+
+    # Redirect every legacy .html address to its extensionless public URL.
+    RewriteCond %{THE_REQUEST} \s/+[^?\ ]+\.html(?:[?\s]) [NC]
+    RewriteRule ^(.+)\.html$ https://www.quimicacenit.uy/$1 [R=301,L,NE]
+
+    # Use one encrypted, canonical origin.
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} !^www\.quimicacenit\.uy$ [NC]
+    RewriteRule ^ https://www.quimicacenit.uy%{REQUEST_URI} [R=301,L]
+
+    # This static site only needs read-only HTTP methods.
+    RewriteCond %{REQUEST_METHOD} !^(?:GET|HEAD|OPTIONS)$ [NC]
+    RewriteRule ^ - [F,L]
+
+    # Disable the WordPress installation that remains in the hosting root.
+    RewriteRule ^(?:wp-admin|wp-content|wp-includes|wordpress|cgi-bin|quimicacenit\.uy)(?:/|$) - [F,L,NC]
+    RewriteRule ^index-wordpress-anterior - [F,L,NC]
+
+    # Do not expose version-control or hidden working directories.
+    RewriteRule (?:^|/)\.(?:git|svn|hg)(?:/|$) - [F,L,NC]
+
+    # Serve a real directory landing page for /marcas. This avoids a 403 and
+    # keeps its CSS and images correct when Apache appends the trailing slash.
+    RewriteRule ^marcas/?$ marcas/index.html [L]
+
+    # Serve the existing static HTML file behind each clean public URL.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<FilesMatch "(?i)(?:\.(?:php|phtml|phar|zip|rar|7z|tar|gz|sql|sqlite|bak|old|orig|save|swp|log|ini|env|ps1|py|bat|cmd)|old)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "^(?:readme\.html|license\.txt|error_log)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://*.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; frame-src https://*.googletagmanager.com; upgrade-insecure-requests"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+    Header always set Strict-Transport-Security "max-age=31536000"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+</IfModule>
+
+# Compress text assets and keep fingerprinted/static resources cacheable.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/ld+json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(?:css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    <FilesMatch "\.(?:avif|webp|png|svg|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_alias.c>
+    Redirect 301 /equipamiento-medico/cuidados-cardiologicos/desfibrilador-cardiolife-tec-5600/ /productos/cardiodesfibrilador-nihon-kohden-cardiolife-tec-5600
+    Redirect 301 /equipamiento-medico/imagenologia/angiografia-alphenix/ /productos/angiografo-canon-medical-alphenix
+    Redirect 301 /equipamiento-medico/imagenologia/detergente-enzimatico-hospitalario-neozime-de-lab-news/ /productos/neozime-labnews-5-litros
+    Redirect 301 /medios_de_contraste_e_inyectoras/gadobutrol/ /productos/gadovist-uruguay
+    Redirect 301 /equipamiento-medico/imagenologia/digitalizador-capsula-xlii-de-fujifilm/ /categorias/imagenologia
+    Redirect 301 /equipamiento-medico/imagenologia/desinfeccion-de-alto-nivel-de-sondas-de-ultrasonidos-tristel-duo-ult-de-vesismin-health/ /categorias/insumos-accesorios
+</IfModule>
+
+# Allow runtime manifests; deny other JSON files.
+<FilesMatch "^(?!manifest\.json$).*\.json$">
+Require all denied
+</FilesMatch>
